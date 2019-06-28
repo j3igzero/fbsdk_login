@@ -53,5 +53,25 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb860816984318054</string>
+      </array>
+    </dict>
+  </array>
+  <key>FacebookAppID</key>
+  <string>860816984318054</string>
+  <key>FacebookDisplayName</key>
+  <string>FJ301</string>
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>fbapi</string>
+    <string>fb-messenger-share-api</string>
+    <string>fbauth2</string>
+    <string>fbshareextension</string>
+  </array>
 </dict>
 </plist>

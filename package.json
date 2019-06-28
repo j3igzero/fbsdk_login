@@ -7,9 +7,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "adm-zip": "^0.4.13",
+    "plist": "^3.0.1",
     "react": "16.8.3",
     "react-native": "0.59.9",
-    "react-native-fbsdk": "^0.10.1"
+    "react-native-fbsdk": "^0.10.1",
+    "xcode": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

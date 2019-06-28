@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import { LoginButton } from 'react-native-fbsdk';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -24,6 +25,21 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+        <LoginButton
+          publishPermissions={["email"]}
+          onLoginFinished={
+            (error, result) => {
+              if (error) {
+                alert("Login failed with error: " + error.message);
+              } else if (result.isCancelled) {
+                alert("Login was cancelled");
+              } else {
+                alert("Login was successful with permissions: " + result.grantedPermissions)
+              }
+            }
+          }
+          onLogoutFinished={() => alert("User logged out")}
+				/>
       </View>
     );
   }

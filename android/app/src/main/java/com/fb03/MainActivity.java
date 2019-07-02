@@ -1,6 +1,7 @@
 package com.fb03;
 
 import com.facebook.react.ReactActivity;
+import android.content.Intent;
 
 public class MainActivity extends ReactActivity {
 
@@ -11,5 +12,17 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "fb03";
+    }
+
+    /**
+     * FBSDK: Provide the ability to receive application events
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        MainApplication.getCallbackManager().onActivityResult(requestCode, resultCode, data);
     }
 }

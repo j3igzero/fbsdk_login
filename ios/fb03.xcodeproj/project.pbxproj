@@ -38,6 +38,10 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		594FFF56069A4BF388E2F093 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B81423781E7449C88C1746FC /* libRCTFBSDK.a */; };
 		656218D822CB647800887161 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 656218D722CB642800887161 /* libRNGoogleSignin.a */; };
+		656218DB22CB66D800887161 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656218D922CB66D700887161 /* GoogleSignInDependencies.framework */; };
+		656218DC22CB66D800887161 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656218DA22CB66D800887161 /* GoogleSignIn.framework */; };
+		656218DE22CB67E900887161 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 656218DD22CB67E900887161 /* GoogleSignIn.bundle */; };
+		656218E022CB6AFF00887161 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 656218DF22CB6AFF00887161 /* GoogleService-Info.plist */; };
 		65A0E3D322C604B700A838CD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A0E3AA22C604B600A838CD /* FBSDKCoreKit.framework */; };
 		65A0E3D422C604B700A838CD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A0E3D122C604B700A838CD /* FBSDKLoginKit.framework */; };
 		65A0E3D522C604B700A838CD /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A0E3D222C604B700A838CD /* FBSDKShareKit.framework */; };
@@ -362,6 +366,10 @@
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		656218AC22CB642700887161 /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
+		656218D922CB66D700887161 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignInDependencies.framework; sourceTree = "<group>"; };
+		656218DA22CB66D800887161 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
+		656218DD22CB67E900887161 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
+		656218DF22CB6AFF00887161 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		65A0E3AA22C604B600A838CD /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		65A0E3D122C604B700A838CD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		65A0E3D222C604B700A838CD /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -395,6 +403,7 @@
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
+				656218DB22CB66D800887161 /* GoogleSignInDependencies.framework in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
@@ -405,6 +414,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				65A0E3D422C604B700A838CD /* FBSDKLoginKit.framework in Frameworks */,
 				594FFF56069A4BF388E2F093 /* libRCTFBSDK.a in Frameworks */,
+				656218DC22CB66D800887161 /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +527,8 @@
 		13B07FAE1A68108700A75B9A /* fb03 */ = {
 			isa = PBXGroup;
 			children = (
+				656218DF22CB6AFF00887161 /* GoogleService-Info.plist */,
+				656218DD22CB67E900887161 /* GoogleSignIn.bundle */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -554,6 +566,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				656218DA22CB66D800887161 /* GoogleSignIn.framework */,
+				656218D922CB66D700887161 /* GoogleSignInDependencies.framework */,
 				65A0E3AA22C604B600A838CD /* FBSDKCoreKit.framework */,
 				65A0E3D122C604B700A838CD /* FBSDKLoginKit.framework */,
 				65A0E3D222C604B700A838CD /* FBSDKShareKit.framework */,
@@ -1142,6 +1156,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				656218E022CB6AFF00887161 /* GoogleService-Info.plist in Resources */,
+				656218DE22CB67E900887161 /* GoogleSignIn.bundle in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1327,6 +1343,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios",
 				);
 				INFOPLIST_FILE = fb03/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1355,6 +1372,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios",
 				);
 				INFOPLIST_FILE = fb03/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

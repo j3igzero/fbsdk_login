@@ -7,8 +7,9 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image, ActivityIndicator, Button} from 'react-native';
 import { LoginButton, AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
+import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -20,12 +21,52 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component<Props> {
   state = {
+		// Facebook login
 		fb_user_id: 0,
 		fb_user_name: 'Guest',
 		fb_user_photo_url: '',
-  };
+
+		// Google signin
+		isSigninInProgress: false,
+		isUserSignedIn: false,
+    loggedInUser: null,
+    checkingSignedInStatus: true
+	};
+	constructor() {
+		super();
+		GoogleSignin.configure();
+	}
+
   render() {
-    const { fb_user_photo_url, fb_user_name } = this.state;
+		const { 
+			fb_user_photo_url, fb_user_name, 
+			isSigninInProgress, checkingSignedInStatus, isUserSignedIn, loggedInUser 
+		} = this.state;
+		
+    if (checkingSignedInStatus) {
+      return (
+        <View style={styles.container}>
+					<Text>Chờ tí...</Text>
+          <ActivityIndicator size='large' color='#00ff00' />
+        </View>
+      );
+    }
+
+    if (isUserSignedIn && loggedInUser && loggedInUser.user) {
+			console.log(loggedInUser);
+      return (
+        <View style={styles.container}>
+					<Image source={{uri: loggedInUser.user.photo}}
+						style={styles.fbAva}
+					/> 
+					<Text>{loggedInUser.user.email}</Text>
+          <Text style={styles.welcome}>Welcome {loggedInUser.user.name}!</Text>
+					
+          <Button title='Log out' onPress={this.signOut} />
+        </View>
+      );
+		}
+		
 
     return (
       <View style={styles.container}>
@@ -46,8 +87,18 @@ export default class App extends Component<Props> {
           onLoginFinished={this.onLoginFinished}
           onLogoutFinished={this.onLogoutFinished}
 				/>
+				<GoogleSigninButton
+					style={styles.ggleButton}
+					size={GoogleSigninButton.Size.Standard}
+					color={GoogleSigninButton.Color.Dark}
+					onPress={this.onPressGoogleSignin}
+					disabled={isSigninInProgress} 
+				/>
       </View>
     );
+	}
+	componentDidMount() {
+    this.isUserSignedIn();
   }
 
   onLoginFinished = async (error, result) => {
@@ -111,6 +162,78 @@ export default class App extends Component<Props> {
 		// new GraphRequestManager().addRequest(infoRequest).start()
 
 	};
+
+	/** GOOGLE SIGNIN **/
+
+	onPressGoogleSignin = async () => {
+		try {
+			this.setState({ isSigninInProgress: true });
+
+			await GoogleSignin.hasPlayServices();
+			const loggedInUser = await GoogleSignin.signIn();
+			this.setState({ loggedInUser, isUserSignedIn: true, isSigninInProgress: false });
+		} 
+		catch (error) {
+			if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+				this.setState({ isSigninInProgress: false });
+			} 
+			else if (error.code === statusCodes.IN_PROGRESS) {
+				// operation (f.e. sign in) is in progress already
+			} else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+				// play services not available or outdated
+			} else {
+				// some other error happened
+			}
+		}
+	};
+
+	isUserSignedIn = async () => {
+    this.setState({ isUserSignedIn: false, checkingSignedInStatus: true });
+    const isUserSignedIn = await GoogleSignin.isSignedIn();
+    if (isUserSignedIn) {
+      await this.getCurrentUserInfo();
+    }
+    this.setState({ isUserSignedIn, checkingSignedInStatus: false });
+	};
+	
+	getCurrentUserInfo = async () => {
+    try {
+      const loggedInUser = await GoogleSignin.signInSilently();
+      this.setState({ loggedInUser });
+    } catch (error) {
+      this.setState({ loggedInUser: null });
+    }
+  };
+
+	signOut = async () => {
+    try {
+      await GoogleSignin.revokeAccess();
+      await GoogleSignin.signOut();
+      this.setState({ isUserSignedIn: false, loggedInUser: null });
+    } catch (error) {
+			// this.handleSignInError(error);
+			alert('Error!!!');
+    }
+	};
+	
+	// handleSignInError = async error => {
+  //   if (error.code) {
+  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+  //       this.showSignInError('User cancelled the login flow.');
+  //     } else if (error.code === statusCodes.IN_PROGRESS) {
+  //       this.showSignInError('Sign in is in progress.');
+  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+  //       await this.getGooglePlayServices();
+  //     } else {
+  //       this.showSignInError(JSON.stringify(error));
+  //     }
+  //   } else {
+  //     this.showSignInError(JSON.stringify(error));
+  //   }
+  //   this.setState({ isSigninInProgress: false });
+  // };
+
+	
 }
 
 const styles = StyleSheet.create({
@@ -134,5 +257,8 @@ const styles = StyleSheet.create({
 		width: 200, height: 200,
 		marginTop: 20,
 		marginBottom: 20
+	},
+	ggleButton: {
+		width: 192, height: 48
 	}
 });

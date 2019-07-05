@@ -52,8 +52,9 @@ export default class App extends Component<Props> {
       );
     }
 
-    if (isUserSignedIn && loggedInUser && loggedInUser.user) {
+    if (isUserSignedIn && loggedInUser) {
 			console.log(loggedInUser);
+			
       return (
         <View style={styles.container}>
 					<Image source={{uri: loggedInUser.user.photo}}

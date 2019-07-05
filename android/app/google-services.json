@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "740850505676",
+    "firebase_url": "https://powernet-f87be.firebaseio.com",
+    "project_id": "powernet-f87be",
+    "storage_bucket": "powernet-f87be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740850505676:android:5c373dbca7499a78",
+        "android_client_info": {
+          "package_name": "com.fb03"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740850505676-u9lmtmbj6fqfl920qunuaipkago8gjcp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fb03",
+            "certificate_hash": "aa3c827ee04e07c15d482c9d470d3d9ce778d326"
+          }
+        },
+        {
+          "client_id": "740850505676-0eo244q2ufk2t24go1ebehu0je6baj92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDsQPkOsYyoB6irKFY6y50H3PMSgPR3Mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740850505676-0eo244q2ufk2t24go1ebehu0je6baj92.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "740850505676-tm5r3d8pdhdj4tfj3ehfljpmptff89r4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.medihub.PowerNetRN"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740850505676:android:4e26f78345f0b962",
+        "android_client_info": {
+          "package_name": "com.powernetrn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740850505676-n4l15ft5409lb3pcub3c0lrmig2b63ha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.powernetrn",
+            "certificate_hash": "aa3c827ee04e07c15d482c9d470d3d9ce778d326"
+          }
+        },
+        {
+          "client_id": "740850505676-0eo244q2ufk2t24go1ebehu0je6baj92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDsQPkOsYyoB6irKFY6y50H3PMSgPR3Mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740850505676-0eo244q2ufk2t24go1ebehu0je6baj92.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "740850505676-tm5r3d8pdhdj4tfj3ehfljpmptff89r4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.medihub.PowerNetRN"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

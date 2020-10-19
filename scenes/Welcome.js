@@ -12,7 +12,8 @@ const instructions = Platform.select({
 
 export default class Welcome extends Component {
   componentDidMount() {
-
+    console.view.log('thang Kun la mot thang ngu!');
+    
   }
 
   componentWillUnmount() {

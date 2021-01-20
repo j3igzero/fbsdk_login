@@ -1,0 +1,17 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'fb03' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  # use_frameworks!
+
+  # Required by RNFirebase
+  pod 'Firebase/Core', '6.5.0'
+  pod 'Firebase/Analytics', '6.5.0'
+
+end
+
+target 'fb03Tests' do
+  inherit! :search_paths
+  # Pods for testing
+end

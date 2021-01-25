@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, TouchableOpacity, Alert, BackHandler } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { NavigationEvents } from 'react-navigation';
+import firebase from 'react-native-firebase';
 
+// const analytics = firebase.analytics();
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -13,7 +15,6 @@ const instructions = Platform.select({
 export default class Welcome extends Component {
   componentDidMount() {
     console.view.log('thang Kun la mot thang ngu!');
-    
   }
 
   componentWillUnmount() {
@@ -33,6 +34,17 @@ export default class Welcome extends Component {
   }
 
   onMain = () => {
+    firebase.analytics()
+    // .logEvent('screen_view', {
+    //     screen_name: 'About'
+    //   });
+    // .logEvent('login', {
+    //   method: 'vietanh'
+    // });
+    .logEvent('sign_up', {
+      method: 'Yahoo'
+    });
+
     Actions.Main();
   };
 

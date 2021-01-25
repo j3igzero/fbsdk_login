@@ -7,7 +7,8 @@ target 'fb03' do
 
   # Required by RNFirebase
   pod 'Firebase/Core', '6.5.0'
-  pod 'Firebase/Analytics', '6.5.0'
+  # pod 'Firebase/Analytics', '6.5.0'
+  pod 'GoogleIDFASupport', '~> 3.14.0'
 
 end
 

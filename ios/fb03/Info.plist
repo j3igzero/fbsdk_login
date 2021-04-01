@@ -56,5 +56,11 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Ứng dụng cần truy cập vào thư viện hình ảnh để lấy ảnh đại diện hoặc ảnh chụp bằng cấp</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Ứng dụng cần quyền truy cập camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Ứng dụng cần quyền truy cập Microphone</string>
 </dict>
 </plist>
